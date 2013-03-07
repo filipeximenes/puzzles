@@ -6,9 +6,12 @@
 # Você está resolvendo este problema.  Este problema foi utilizado em 39 Dojo(s).
 # Dada uma expressão booleana, contendo os símbolos: 'true', 'false', 'and', 'or'
 # e 'xor', elabore um programa que conte de quantas maneiras é possível obter uma
-# resposta ' true', utilizando parênteses. Por exemplo, dada a expressão 'true and
-# false xor true' existe apenas uma maneira de a expressão retornar 'true': 'true
-# and (false xor true)'
+# resposta ' true', utilizando parênteses. 
+
+# This might be wrong
+# Por exemplo, dada a expressão 'true and
+# false xor true' existe apenas uma maneira de a expressão 
+# retornar 'true': 'true and (false xor true)'
 
 import itertools
 
