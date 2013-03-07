@@ -20,7 +20,7 @@ def get_item(exp, pos):
             return j
 
 
-def dot_op(bool1, op, bool2):
+def do_op(bool1, op, bool2):
     if op == 'and':
         return eval(bool1) and eval(bool2)
     elif op == 'or':
@@ -39,7 +39,7 @@ def operate(exp, item):
         exp.pop(i-1)
         exp.pop(i-1)
         exp.pop(i-1)
-        exp.insert(i-1, (-1, str(dot_op(exp1, op, exp2))))
+        exp.insert(i-1, (-1, str(do_op(exp1, op, exp2))))
 
     return exp
 
