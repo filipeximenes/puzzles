@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*- 
 # source: http://dojopuzzles.com/problemas/exibe/parenteses-booleanos/
 
+# Parentesys and booleans
+
+# Given a boolean expression, containing the symbols: 'True', 'False', 'and', 'or', 'xor',
+# write a program that counts how many whays are there to return a True value
+# using parentesys
+
 # Example from the source:
 # 'True and False xor True' should return 1
 # this is probably mistaken since:
