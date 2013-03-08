@@ -23,7 +23,7 @@ def get_item(exp, pos):
         if tup[0] == pos: return j
 
 
-def do_op(bool1, op, bool2):
+def do_op(op, bool1, bool2):
     if op == 'and': return eval(bool1) and eval(bool2)
     elif op == 'or': return eval(bool1) or eval(bool2)
     elif op == 'xor': return eval(bool1) != eval(bool2)
@@ -35,7 +35,7 @@ def operate(exp, item):
         _, exp1 = exp.pop(i-1)
         _, op = exp.pop(i-1)
         _, exp2 = exp.pop(i-1)
-        exp.insert(i-1, (-1, str(do_op(exp1, op, exp2))))
+        exp.insert(i-1, (-1, str(do_op(op, exp1, exp2))))
 
     return exp
 
@@ -46,20 +46,20 @@ def count_par(exp, v=False):
     exp = exp.split()
     exp = zip(range(len(exp)), exp)
 
-    if v: print exp; print 'precedence order:'
-
     ops = [pos for pos, item in exp[1::2]]
     ops = itertools.permutations(ops, len(ops))
 
+    if v: print exp; print 'precedence order:';
+
     for sequence in ops:
+        if v: print sequence
+
         aux_exp = list(exp)
         for op in sequence:
             aux_exp = operate(aux_exp, op)
 
         _, res = aux_exp[0]
         if res == 'True': count += 1
-
-        if v: print sequence
 
     return count
 
