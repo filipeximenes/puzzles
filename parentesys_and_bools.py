@@ -52,17 +52,20 @@ def count_par(exp, v=False):
     if v: print exp; print 'precedence order:';
 
     for sequence in ops:
-        if v: print sequence
-
         aux_exp = list(exp)
         for op in sequence:
             aux_exp = operate(aux_exp, op)
 
         _, res = aux_exp[0]
-        if res == 'True': count += 1
+        if res == 'True': 
+            count += 1
+            if v: print sequence
 
     return count
 
 print count_par("True and False or True or False", v=True)
+print count_par("True and False or True or False and False", v=True)
+print count_par("True and False or True or False and False or True", v=True)
+print count_par("True and False or True or False and False and True", v=True)
 print count_par("False and False and False and False", v=True)
 print count_par("True and False xor True", v=True)
