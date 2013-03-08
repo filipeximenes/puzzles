@@ -18,7 +18,7 @@
 import itertools
 
 
-def get_item(exp, pos):
+def get_item_pos(exp, pos):
     for j, tup in enumerate(exp):
         if tup[0] == pos: return j
 
@@ -30,7 +30,7 @@ def do_op(op, bool1, bool2):
 
 
 def operate(exp, item):
-    i = get_item(exp, item)
+    i = get_item_pos(exp, item)
     if i:
         _, exp1 = exp.pop(i-1)
         _, op = exp.pop(i-1)
@@ -64,4 +64,5 @@ def count_par(exp, v=False):
     return count
 
 print count_par("True and False or True or False", v=True)
+print count_par("False and False and False and False", v=True)
 print count_par("True and False xor True", v=True)
